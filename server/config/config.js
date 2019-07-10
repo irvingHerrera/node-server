@@ -12,4 +12,13 @@ if( process.env.NODE_ENV === 'dev' ) {
     urlDB = '';
 }
 
+// vencimiento de token
+process.env.CADUCIDAD_TOKEN = 60 * 60 * 24 * 30; //por mes
+
+// seEd de autenticacion
+process.env.SEED = process.env.SEED || 'este-es-el-seed-desarrollo';
+
 process.env.URLDB = urlDB;
+
+// google cliend id
+process.env.CLIENT_ID = process.env.CLIENT_ID || '528785555372-snuk8iih0i46jlf5tnk7h0i87a0fa6l3.apps.googleusercontent.com';
