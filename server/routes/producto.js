@@ -69,6 +69,34 @@ app.get('/producto:id', verificaToken, (req, res) => {
     
 })
 
+// buscar producto
+app.get('/productos/buscar/:termino', (re, res) => {
+
+
+    let termino = req.params.termino;
+
+    let regex = new RegExp(termino, 'i');
+
+    Producto.find({ nombre: regex })
+    .populate('categoria', 'nombre')
+    .exec( (err , productos) => {
+
+        if( err ) {
+            return res.status(500).json({
+                ok: false,
+                err
+            });
+        }
+
+        res.json({
+            ok: true,
+            productos
+        })
+
+    });
+
+});
+
 // crear nueva producto
 app.post('/producto', verificaToken, (req, res) => {
 
