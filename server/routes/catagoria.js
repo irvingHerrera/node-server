@@ -99,7 +99,7 @@ app.put('/categoria', verificaToken, (req, res) => {
 
     let descCategoria = { descripcion: body.descripcion }
 
-    Categoria.findByIdAndUpdate(id, descCategoria {new: true, runValidators: true}, ( err, categoriaDB) => {
+    Categoria.findByIdAndUpdate(id, descCategoria, {new: true, runValidators: true}, ( err, categoriaDB) => {
 
         if( err ) {
             return res.status(500).json({
